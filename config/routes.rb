@@ -1,3 +1,43 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+# 顧客用
+# URL /customers/sign_in ...
+devise_for :customers,skip: [:passwords,], controllers: {
+  registrations: "customer/registrations",
+  sessions: 'customer/sessions'
+}
+# 5.6行目↑コントローラーはどこのを参照しているか
+
+# 管理者用
+# URL /admin/sign_in ...
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
+#root path
+root to: 'homes#top'
+
+#use namespace "admin"
+namespace :admin do
+  #root path
+  root to: 'homes#top'
+  resources :items
+  resources :orders, only: [:index, :show, :update]
+  resources :customers, only: [:index, :show, :edit, :update]
+  resources :order_details, only: [:update]
+  resources :genres, only: [:index, :create, :edit, :update]
+end
+
+#customer
+resources :items
+resources :genres, only: [:index, :edit, :update]
+resources :addresses, only: [:index, :create, :update, :destroy, :edit]
+#customer order routes
+resources :orders, only: [:new, :create, :index, :show]
+get 'orders/complete', to: 'orders#complete'
+post 'orders/comfirm', to: 'orders#comfirm'
+#customer cart_items routes
+resources :cart_items, only: [:index, :update, :create, :destroy]
+delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+
 end
