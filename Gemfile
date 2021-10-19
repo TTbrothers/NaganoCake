@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
-gem '1.3.6'
+gem "sqlite3", "~> 1.3.6"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -51,3 +51,5 @@ gem 'devise'
 
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+
+gem "enum_help"
