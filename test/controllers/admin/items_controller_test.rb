@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JenreTest < ActiveSupport::TestCase
+class Admin::ItemsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
