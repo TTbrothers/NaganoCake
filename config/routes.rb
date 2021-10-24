@@ -13,8 +13,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
+# ↓'customer'の中のコントローラーを使うよという指定の文
+scope module: 'customer' do
 #root path
 root to: 'homes#top'
+get 'about' => 'homes#about'
+end
 
 #use namespace "admin"
 namespace :admin do
