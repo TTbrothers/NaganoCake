@@ -1,1 +1,16 @@
-TOP
+<%= render 'layouts/header' %>
+
+<div class="container-fluid border-dark border-top border-bottom">
+  <div class="row">
+      <!--ジャンル検索の部分テンプレート？-->
+    <div class='mx-auto'>
+        <p>ようこそ、ながのCAKEへ！</p>
+        <p>このサイトは、ケーキ販売のECサイトになります。</p>
+        <p>会員でない方も商品の閲覧はできますが、</p>
+        <p>購入には会員登録が必要になります。</p>
+        <h2>新着商品</h2>
+        <!--商品一覧の部分テンプレートここに挿入？-->
+        <div class="text-right"><%= link_to '全ての商品を見る>', items_path %></div>
+    </div>
+  </div>
+</div>
