@@ -5,7 +5,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
   registrations: "customer/registrations",
   sessions: 'customer/sessions'
 }
-# 5.6行目↑コントローラーはどこのを参照しているか
+# 5.6行目↑どこのコントローラーを参照しているか
 
 # 管理者用
 # URL /admin/sign_in ...
