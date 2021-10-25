@@ -38,6 +38,8 @@ end
 
 namespace :customer do
 #customer
+  get 'items/search'
+  post 'items/search'
   resources :items
   resources :genres, only: [:index, :edit, :update]
   resources :addresses, only: [:index, :create, :update, :destroy, :edit]
