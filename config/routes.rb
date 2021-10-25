@@ -36,8 +36,10 @@ namespace :admin do
   resources :genres, only: [:index, :create, :edit, :update]
 end
 
+namespace :customer do
 #customer
-scope module: :customer do
+  get 'items/search'
+  post 'items/search'
   resources :items
   resources :genres, only: [:index, :edit, :update]
   resources :addresses, only: [:index, :create, :update, :destroy, :edit]
@@ -49,7 +51,7 @@ scope module: :customer do
   resources :cart_items, only: [:index, :update, :create, :destroy]
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
   put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 
 end
 

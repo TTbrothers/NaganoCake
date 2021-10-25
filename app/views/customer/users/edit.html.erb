@@ -1,0 +1,71 @@
+<div class='container'>
+  <div class='row'>
+
+    <h2>会員情報編集</h2>
+    <%= form_with model: @user, url:customer_user_path(@user), local:true do |f| %>
+
+      <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"名前" %>
+    </div>
+    <div class="col-sm-3">
+      (姓)　<%= f.text_field :last_name %>
+    </div>
+    <div class="col-sm-3">
+      (名)　<%= f.text_field :first_name, autofocus: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"フリガナ" %>
+    </div>
+    <div class="col-sm-3">
+      (セイ)<%= f.text_field :last_name_kana, autofocus: true %>
+    </div>
+    <div class="col-sm-3">
+    (メイ)<%= f.text_field :first_name_kana, autofocus: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"メールアドレス" %>
+    </div>
+    <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+    <div class="col-sm-6">
+      <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"郵便番号" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :postal_code %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"住所" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :address, :size=>"60" %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"電話番号" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+  <div class="col-sm-offset-4 col-sm-3">
+    <%= f.submit "編集内容を保存" %>
+  </div>
+
+    <% end %>
+
+</div>
