@@ -4,12 +4,12 @@ class Customer::OrdersController < ApplicationController
 
  def new
   @order = Order.new
-  @shipping_addresses = ShippingAddress.where(customer: current_customer)
+  @shipping_addresses = Address.where(customer_id: current_customer.id)
  end
 
  def comfirm
   @cart_items = current_cart
-	@order = Order.new(
+	 @order = Order.new(
     customer: current_customer,
     payment_method: params[:order][:payment_method]
     )
@@ -26,7 +26,7 @@ class Customer::OrdersController < ApplicationController
 
   # addressにshipping_addressesの値がはいっていれば
   elsif params[:order][:addresses] == "shipping_addresses"
-   ship = ShippingAddress.find(params[:order][:shipping_address_id])
+   ship = Address.find(params[:order][:shipping_address_id])
     @order.postal_code = ship.postal_code
     @order.address     = ship.address
     @order.name        = ship.name
@@ -40,7 +40,7 @@ class Customer::OrdersController < ApplicationController
 
       # バリデーションがあるならエラーメッセージを表示
   unless @order.valid? == true
-   @shipping_addresses = ShippingAddress.where(customer: current_customer)
+   @shipping_addresses = Address.where(customer_id: current_customer.id)
    render :new
   end
   end

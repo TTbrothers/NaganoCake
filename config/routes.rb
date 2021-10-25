@@ -29,15 +29,17 @@ end
 
 #customer
 resources :items
-resources :genres, only: [:index, :edit, :update]
-resources :addresses, only: [:index, :create, :update, :destroy, :edit]
-#customer order routes
-resources :orders, only: [:new, :create, :index, :show]
-get 'orders/complete', to: 'orders#complete'
-post 'orders/comfirm', to: 'orders#comfirm'
-#customer cart_items routes
-resources :cart_items, only: [:index, :update, :create, :destroy]
-delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
-put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+scope module: :customer do
+ resources :genres, only: [:index, :edit, :update]
+ resources :addresses, only: [:index, :create, :update, :destroy, :edit]
+ #customer order routes
+ resources :orders, only: [:new, :create, :index, :show]
+ get 'orders/complete', to: 'orders#complete'
+ post 'orders/comfirm', to: 'orders#comfirm'
+ #customer cart_items routes
+ resources :cart_items, only: [:index, :update, :create, :destroy]
+ delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+ put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+end
 
 end
