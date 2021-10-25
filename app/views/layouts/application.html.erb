@@ -13,9 +13,12 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container-fluid p-5 "style="border :3px solid black"  >
+    <div class="container-fluid p-5 " >
+
 
     <%= yield %>
+
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
