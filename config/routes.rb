@@ -49,7 +49,7 @@ namespace :customer do
   resources :cart_items, only: [:index, :update, :create, :destroy]
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
   put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 
 end
 
