@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :customer do
+    get 'users/show'
+  end
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords,], controllers: {
@@ -6,6 +9,8 @@ devise_for :customers,skip: [:passwords,], controllers: {
   sessions: 'customer/sessions'
 }
 # 5.6行目↑どこのコントローラーを参照しているか
+
+
 
 # 管理者用
 # URL /admin/sign_in ...
@@ -31,17 +36,21 @@ namespace :admin do
   resources :genres, only: [:index, :create, :edit, :update]
 end
 
+namespace :customer do
 #customer
-resources :items
-resources :genres, only: [:index, :edit, :update]
-resources :addresses, only: [:index, :create, :update, :destroy, :edit]
-#customer order routes
-resources :orders, only: [:new, :create, :index, :show]
-get 'orders/complete', to: 'orders#complete'
-post 'orders/comfirm', to: 'orders#comfirm'
-#customer cart_items routes
-resources :cart_items, only: [:index, :update, :create, :destroy]
-delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
-put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+  resources :items
+  resources :genres, only: [:index, :edit, :update]
+  resources :addresses, only: [:index, :create, :update, :destroy, :edit]
+  #customer order routes
+  resources :orders, only: [:new, :create, :index, :show]
+  get 'orders/complete', to: 'orders#complete'
+  post 'orders/comfirm', to: 'orders#comfirm'
+  #customer cart_items routes
+  resources :cart_items, only: [:index, :update, :create, :destroy]
+  delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+  put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+  resources :users, only: [:show, :edit]
+
+end
 
 end
