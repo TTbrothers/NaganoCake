@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   namespace :customer do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
+  namespace :customer do
     get 'users/show'
   end
 # 顧客用
@@ -52,7 +60,7 @@ namespace :customer do
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
   put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
   resources :users, only: [:show, :edit, :update]
-
+  resources :addresses, only: [:index, :edit, :update, :create, :destroy]
 end
 
 end
