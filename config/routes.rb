@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   namespace :customer do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+  end
+  namespace :customer do
     get 'users/show'
   end
 # 顧客用
