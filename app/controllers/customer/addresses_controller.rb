@@ -16,7 +16,8 @@ class Customer::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-      redirect_to customer_addresses_path, notice: "You have added address successfully."
+      flash[:notice] = "配送先を登録しました"
+      redirect_to customer_addresses_path
     else
       # binding.pry
       @address = Address.new
@@ -38,7 +39,7 @@ class Customer::AddressesController < ApplicationController
 
   def destroy
      Address.find_by(id: params[:id]).destroy
-    redirect_to customer_addresses_path, notice: "You have deleted address successfully."
+    redirect_to customer_addresses_path, notice: "配送先を1件削除しました"
   end
 
   private
