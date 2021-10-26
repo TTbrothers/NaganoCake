@@ -30,7 +30,7 @@ class Customer::SessionsController < Devise::SessionsController
     @user = Customer.find_by(email: params[:customer][:email])
     if @user
       if @user.valid_password?(params[:customer][:password]) && @user.is_deleted
-        redirect_to new_customer_session_path
+        redirect_to new_customer_registration_path
       end
     end
   end
