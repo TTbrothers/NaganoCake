@@ -66,17 +66,17 @@
 		    <%= order_detail.item.name %>
 			 </td>
 		   <td class="text-right">
-			  ¥<%= tax_price(order_detail.item.tax_out_price).to_s(:delimited) %>
+			  ¥<%= tax_price(order_detail.item.price).to_s(:delimited) %>
 			 </td>
 		   <td class="text-right">
-		    <%= order_detail.quantity %>
+		    <%= order_detail.amount %>
 			 </td>
 			 <td class="text-right">
-			  ¥<%= sub_price(order_detail).to_s(:delimited) %>
+			  ¥<%= price(order_detail).to_s(:delimited) %>
 			 </td>
 			  <%= form_for(order_detail, url: admin_order_detail_path(order_detail), method: :patch) do |f| %>
 	       <td>
-			 	  <%= f.select :is_active, OrderDetail.order_statuses.keys, class: "order_status" %>
+			 	  <%= f.select :status, OrderDetail.statuses.keys, class: "order_status" %>
 			    <%= f.submit '更新'  ,class: "btn btn-warning" %>
          </td>
 		    <% end %>
@@ -85,3 +85,24 @@
 		 </tbody>
 		</table>
 	 </div>
+   <div class="col-xs-3  billing">
+		<table class="table table-hover table-bordered table-condensed">
+		 <tr>
+     	<th class="info">商品合計</th>
+			<td>¥<%= total_price(@order_details).to_s(:delimited) %></td>
+		 </tr>
+		 <tr>
+			<th class="info">送料</th>
+			<td>¥<%= @order.shipping_cost.to_s(:delimited) %></td>
+		 </tr>
+		 <tr>
+			<th class="info">請求金額合計</th>
+			<td>¥<%= @order.total_payment.to_s(:delimited) %></td>
+		 </tr>
+	  </table>
+	  </div>
+    <div class="col-xs-12">
+     <%= link_to "戻る", admin_orders_path, class: "glyphicon glyphicon-home btn btn-info" %>
+    </div>
+	 </div>
+  </div>

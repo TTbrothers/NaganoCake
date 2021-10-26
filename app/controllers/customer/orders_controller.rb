@@ -15,12 +15,12 @@ class Customer::OrdersController < ApplicationController
     )
 
   # total_priceに請求額を代入
-  @order.total_price = billing(@order)
+  @order.total_payment = billing(@order)
 
   # addressにresidenceの値がはいっていれば
   if params[:order][:addresses] == "residence"
    @order.postal_code = current_customer.postal_code
-   @order.address     = current_customer.residence
+   @order.address     = current_customer.address
    @order.name        = current_customer.last_name +
                         current_customer.first_name
 
@@ -63,8 +63,8 @@ class Customer::OrdersController < ApplicationController
   OrderDetail.create(
   item: cart_item.item,
       order: @order,
-      quantity: cart_item.quantity,
-      subprice: sub_price(cart_item)
+      amount: cart_item.amount,
+      price: price(cart_item)
        )
   end
   # 注文完了後、カート商品を空にする
@@ -86,7 +86,7 @@ class Customer::OrdersController < ApplicationController
  private
 
  def order_params
-  params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_price)
+  params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment)
  end
 
  def address_params

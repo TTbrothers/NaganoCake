@@ -35,9 +35,9 @@
 
      <h3 class="col-xs-3 sub-head text-center"><i class="fas fa-people-carry"></i>お届け先</h3>
       <div class="col-xs-10 radio">
-       <%= f.radio_button :addresses, "residence", checked: true  %>
+       <%= f.radio_button :addresses, "residense", checked: true  %>
        <span>&nbsp;ご自身の住所</span><br>
-          &emsp;&emsp;<%= "#{current_customer.postal_code} #{current_customer.residence}" %>
+          &emsp;&emsp;<%= "#{current_customer.postal_code} #{current_customer.address}" %>
           <br>
           &emsp;&emsp;<%= "#{current_customer.first_name} #{current_customer.last_name}" %>
       </div>
