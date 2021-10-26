@@ -1,2 +1,34 @@
-<h1>Customer::Addresses#edit</h1>
-<p>Find me in app/views/customer/addresses/edit.html.erb</p>
+<div class="container">
+    <div class="row">
+        <h4 class="col-sm-3">配送先編集</h4>
+    </div>
+    <%= form_with model: @address, url: customer_addresses_path, local: true do |f| %>
+    <div class="row">
+        <div class="col-sm-3">
+          郵便番号(ハイフンなし)
+        </div>
+        <div class="col-sm-3">
+            <%= f.text_field :postcode %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            住所
+        </div>
+        <div class="col-sm-5">
+            <%= f.text_field :address, :size=>"60" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            宛名
+        </div>
+        <div class="col-sm-3">
+             <%= f.text_field :name %>
+        </div>
+        <div class="col-sm-offset-3 col-sm-3">
+            <%= f.submit "変更内容を保存" %>
+        </div>
+    </div>
+    <% end %>
+</div>

@@ -16,7 +16,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
   registrations: "customer/registrations",
   sessions: 'customer/sessions'
 }
-# 5.6行目↑どこのコントローラーを参照しているか
+# 16,17行目↑どこのコントローラーを参照しているか
 
 
 
@@ -60,7 +60,6 @@ namespace :customer do
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
   put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
   resources :users, only: [:show, :edit, :update]
-  resources :addresses, only: [:index, :edit, :update, :create, :destroy]
 end
 
 
