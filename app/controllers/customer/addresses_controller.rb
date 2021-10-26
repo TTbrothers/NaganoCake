@@ -3,13 +3,12 @@ class Customer::AddressesController < ApplicationController
   def index
     @address = Address.new
     @addresses = Address.all
-    
+
 
   end
 
   def edit
     @address = Address.find(params[:id])
-
 
   end
 
@@ -28,6 +27,13 @@ class Customer::AddressesController < ApplicationController
   end
 
   def update
+       @address = Address.find(params[:id])
+    if @address.update(address_params)
+      redirect_to customer_addresses_path
+    else
+      reder :edit
+    end
+
   end
 
   def destroy
@@ -36,7 +42,6 @@ class Customer::AddressesController < ApplicationController
   end
 
   private
-
   def address_params
     params.require(:address).permit(:name, :postcode, :address )
   end
