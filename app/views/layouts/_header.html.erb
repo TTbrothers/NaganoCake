@@ -1,29 +1,30 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid"style="border-bottom :3px solid black"  >
-      <a class="navbar-brand" href="/"><span>LOGO</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
+      <a class="navbar" href="/"><span>ロゴ</span></a>
 
-      <div class="navbar-center">
-        <% if customer_signed_in? %>
-        ようこそ、 <%= current_customer.last_name %>さん！
-        <% end %>
+</button>
+      <div class="row justify-content-center">
+          <div class="col-sm-offset-3 col-sm-12">
+          <% if customer_signed_in? %>
+          ようこそ、 <%= current_customer.last_name %>さん！
+          <% end %>
+          </div>
       </div>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
-          <li><%= link_to ' マイページ',customer_user_path(current_customer) %></li>
-          <li><%= link_to ' 商品一覧',customer_items_path %></li>
-          <li><%= link_to ' カート', customer_cart_items_path %></li>
-          <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></li>
+          <li>
+            <button class="btn btn-outline-secondary m-3 " ><%= link_to ' マイページ',customer_user_path(current_customer) %> </button></li>
+            <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 商品一覧',customer_items_path %></button></li>
+            <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' カート', customer_cart_items_path %></button></li>
+            <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></button></li>
         <% else %>
-          <li><%= link_to ' About', about_path %></li>
-          <li><%= link_to ' 商品一覧', customer_items_path %></li>
-          <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
-          <li><%= link_to ' ログイン', new_customer_session_path %></li>
+            <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' About', about_path %></button></li>
+            <button class="btn btn-outline-secondary m-3  " ><li><%= link_to ' 商品一覧', customer_items_path %></button></li>
+            <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 新規登録', new_customer_registration_path %></button></li>
+            <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' ログイン', new_customer_session_path %></button></li>
         <% end %>
         </ul>
       <!--検索機能-->
