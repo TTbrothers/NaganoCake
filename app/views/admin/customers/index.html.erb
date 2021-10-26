@@ -1,5 +1,6 @@
 
 <div class="container">
+  <div class="row">
         <table class="col-10 table table-bordered">
       <tr>
         <th class="col-1 bg-light">会員ID</th>
@@ -7,7 +8,7 @@
         <th class="col-1 bg-light">メールアドレス</th>
         <th class="col-2 bg-light">ステータス</th>
       </tr>
-      <% @customers.each do |customer| %>
+      <% @customer.each do |customer| %>
       <tr>
           <td>
                 <%= customer.id %>
@@ -25,4 +26,10 @@
       <% end %>
 
     </table>
+    </div>
+    <!--<div class="row">-->
+    <div class="col text-center">
+      <%= paginate @customers %>
+    <!--</div>-->
+    </div>
 </div>
