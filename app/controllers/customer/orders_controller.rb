@@ -63,7 +63,7 @@ class Customer::OrdersController < ApplicationController
   OrderDetail.create(
   item: cart_item.item,
       order: @order,
-      amount: cart_item.amount,
+      quantity: cart_item.quantity,
       price: price(cart_item)
        )
   end

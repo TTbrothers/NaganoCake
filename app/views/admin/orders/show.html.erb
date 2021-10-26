@@ -33,7 +33,7 @@
 	   <%= form_for(@order, url: admin_order_path, method: :patch) do |f| %>
  	    <div class="col-xs-4">注文ステータス</div>
        <div class="col-xs-6">
-        <%= f.select :order_status, Order.order_statuses.keys, class: "order_status" %>
+        <%= f.select :status, Order.statuses.keys, class: "order_status" %>
        </div>
 
        <div class="actions">
@@ -89,7 +89,7 @@
 		<table class="table table-hover table-bordered table-condensed">
 		 <tr>
      	<th class="info">商品合計</th>
-			<td>¥<%= total_price(@order_details).to_s(:delimited) %></td>
+			<td>¥<%= total_payment(@order_details).to_s(:delimited) %></td>
 		 </tr>
 		 <tr>
 			<th class="info">送料</th>
