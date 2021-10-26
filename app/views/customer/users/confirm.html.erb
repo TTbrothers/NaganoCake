@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4 text-center">
+          <h3>本当に退会しますか？</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-offset-3 col-sm-5 text-center">
+          <p>退会すると、会員登録情報や</p>
+          <p>これまでの購入履歴が閲覧できなくなります。</p>
+          <p>退会する場合は、「退会する」をクリックしてください。</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-offset-8 col-sm-2 text-center">
+           <%= link_to '退会しない', customer_user_path(current_customer) %>
+        </div>
+        <div class="col-sm-offset-8 col-sm-2 text-center">
+          <%= link_to "退会する", customer_path(@user), method: :patch %>
+        </div>
+    </div>
+</div>
