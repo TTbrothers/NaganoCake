@@ -16,7 +16,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
   registrations: "customer/registrations",
   sessions: 'customer/sessions'
 }
-# 5.6行目↑どこのコントローラーを参照しているか
+# 16,17行目↑どこのコントローラーを参照しているか
 
 
 
