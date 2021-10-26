@@ -1,0 +1,99 @@
+<div class='container'>
+  <div class='row'>
+
+    <h2>会員情報編集</h2>
+    <%= form_with model: @customer, url:admin_customer_path(@customer), local:true do |f| %>
+    </div>
+      <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"氏名" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"フリガナ" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :last_name_kana, autofocus: true %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :first_name_kana, autofocus: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"メールアドレス" %>
+    </div>
+    <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+    <div class="col-sm-6">
+      <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"郵便番号" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :postal_code %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"住所" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :address, :size=>"60" %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"電話番号" %>
+    </div>
+    <div class="col-sm-3">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :"会員ステータス" %>
+
+      <div class="done">
+      <%= f.label :done %>
+      <div>
+      <%= f.radio_button :done, true %>
+      <%= f.label :done, '有効', value: true %>
+      </div>
+      <div>
+      <%= f.radio_button :done, false %>
+      <%= f.label :done, '退会', value: false %>
+    </div>
+  </div>
+
+    </div>
+  </div>
+  <div class="row justify-content-evenly">
+    <div class="col-4 text-center">
+      <%= f.submit "編集内容を保存" %>
+    </div>
+
+    <% end %>
+    <!--<div class="row">-->
+
+    </div>
+    <!--</div>-->
+
+</div>
+
+
+      <%#=link_to("/customer/users/confirm") do %>
+      <!--<button class="btn btn-secondary btn-lg" >退会する</button>-->
+      <%#end%>
