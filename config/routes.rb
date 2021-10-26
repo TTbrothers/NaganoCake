@@ -62,4 +62,6 @@ namespace :customer do
   resources :users, only: [:show, :edit, :update]
 end
 
+
 end
+
