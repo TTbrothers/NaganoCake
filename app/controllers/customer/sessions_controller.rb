@@ -24,4 +24,16 @@ class Customer::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def reject_inactive_user
+    @user = Customer.find(params[:id])
+    if @user
+      if @user.deleted_password?(params[:id][:passwords]) && !@user.is_deleted
+        redirect_to new_user_session_path
+      end
+    end
+  end
+
+
+
 end
