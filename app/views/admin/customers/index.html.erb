@@ -20,7 +20,16 @@
                 <%= customer.email %>
           </td>
           <td class="text-center">
-                <%= customer.is_deleted ? '退会' : '有効' %>
+            <% if customer.is_deleted == true %>
+            <span class="badge badge-secondary">
+            退会
+            </span>
+            <% else %>
+            <span class="badge badge-primary">
+            有効
+            </spam>
+            <% end %>
+                <%#= customer.is_deleted ? '退会' : '有効' %>
           </td>
       </tr>
       <% end %>
