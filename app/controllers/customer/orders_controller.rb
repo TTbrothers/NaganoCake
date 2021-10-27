@@ -47,7 +47,7 @@ class Customer::OrdersController < ApplicationController
  end
 
  def create
-  @order = current_customer.orders.new(order_params)
+  @order = current_customer.order.new(order_params)
   @order.save
   flash[:notice] = "ご注文が確定しました。"
   redirect_to orders_complete_path
