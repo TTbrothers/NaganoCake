@@ -11,22 +11,22 @@
       </tr>
       <tr>
         <th><%= f.label :"氏名" %></th>
-        <td><%= f.text_field :last_name %></td>
-        <td><%= f.text_field :first_name, autofocus: true %></td>
+        <td><%= f.text_field :last_name, class: "form-control"%></td>
+        <td><%= f.text_field :first_name, autofocus: true, class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :"フリガナ" %></th>
-        <td><%= f.text_field :last_name_kana, autofocus: true %></td>
-        <td><%= f.text_field :first_name_kana, autofocus: true %></td>
+        <td><%= f.text_field :last_name_kana, autofocus: true, class: "form-control" %></td>
+        <td><%= f.text_field :first_name_kana, autofocus: true, class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :"メールアドレス" %></th>
-        <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
+        <td><%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
         <td></td>
       </tr>
       <tr>
         <th><%= f.label :"郵便番号" %></th>
-        <td><%= f.text_field :postal_code %></td>
+        <td><%= f.text_field :postal_code, class: "form-control" %></td>
         <td></td>
       </tr>
       <tr>
@@ -35,7 +35,7 @@
       </tr>
       <tr>
         <th><%= f.label :"電話番号" %></th>
-        <td><%= f.text_field :telephone_number %></td>
+        <td><%= f.text_field :telephone_number, class: "form-control" %></td>
         <td></td>
       </tr>
       <tr>
