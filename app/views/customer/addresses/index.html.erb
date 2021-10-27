@@ -10,41 +10,28 @@
 
         </div>
     </div>
-
     <div class="row">
         <h4 class="col-sm-3">配送先一覧/登録</h4>
     </div>
     <%= form_with model: @address, url: customer_addresses_path, local: true do |f| %>
-    <div class="row">
-        <div class="col-sm-3">
-          郵便番号(ハイフンなし)
-        </div>
-        <div class="col-sm-3">
-            <%= f.text_field :postcode, :placeholder => "0000000" %>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            住所
-        </div>
-        <div class="col-sm-5">
-            <%= f.text_field :address, :size=>"60", :placeholder => "東京都渋谷区代々木神園町0-0" %>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            宛名
-        </div>
-        <div class="col-sm-3">
-             <%= f.text_field :name, :placeholder => "令和道子" %>
-        </div>
-        <div class="col-sm-offset-3 col-sm-3">
-            <%= f.submit "新規登録" %>
-        </div>
-    </div>
+    <table class="table table-borderless">
+        <tr>
+            <th><%= f.label :"郵便番号(ハイフンなし)" %></th>
+            <td><%= f.text_field :postcode, :placeholder => "0000000" %></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th><%= f.label :"住所" %></th>
+            <td><%= f.text_field :address, :placeholder => "東京都渋谷区代々木神園町0-0", class: "form-control" %></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th><%= f.label :"宛名" %></th>
+            <td><%= f.text_field :name, :placeholder => "令和道子" %></td>
+            <td><%= f.submit "新規登録", class: "form-control" %></td>
+        </tr>
+    </table>
     <% end %>
-
-
         <table class="col-10 table table-bordered">
       <tr>
         <th class="col-1 bg-light">郵便番号</th>
@@ -64,11 +51,8 @@
                 <%= address.name %>
           </td>
           <td class="text-center">
-
-                <button class="btn btn-success btn-sm" ><%= link_to "編集", edit_customer_address_path(address.id) %></button>
-
-                <button class="btn btn-danger btn-sm" ><%= link_to "削除", customer_address_path(address), method: :delete, data: { confirm: "【確認】配送先を削除してもよろしいですか？" } %></button>
-
+                <%= link_to "編集", edit_customer_address_path(address.id),class: "btn btn-success btn-sm" %>
+                <%= link_to "削除", customer_address_path(address), method: :delete, data: { confirm: "【確認】配送先を削除してもよろしいですか？" }, class: "btn btn-danger btn-sm" %>
           </td>
       </tr>
       <% end %>
