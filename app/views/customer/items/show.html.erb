@@ -1,6 +1,25 @@
-<%= attachment_image_tag @item, :image, :fill, 300, 200, fallback: "no.image.jpg" %>
-<%= @item.name %>
-<%= @item.introduction %>
-<%= @item.price %>
+<%= render 'customer/items/genre_sidebar', genres: @genres %>
+<div class="col-lg-3">
+  <div><%= attachment_image_tag @item, :image, :fill, 250, 200, fallback: "no_image.jpg" %></div>
+</div>
 
-<%= link_to 'カートに入れる' cart_items_path %>
+<div class="col-lg-6">
+  <table class="table table-borderless">
+    <tr>
+      <td><%= @item.name %></td>
+    </tr>
+    <tr>
+      <td><%= @item.introduction %></td>
+    </tr>
+    <tr>
+      <td>￥<%= @item.price %></td>
+    </tr>
+    <%= form_with model: @cart_item, url: customer_cart_items_path, local:true do |f| %>
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <tr>
+      <th><%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :include_blank => '個数選択' %></th>
+      <td><%= f.submit "カートに入れる", class:"btn btn-success" %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
