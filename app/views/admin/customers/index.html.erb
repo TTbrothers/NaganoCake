@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="row">
+  <div class="row" style="display: flex; justify-content: center; ">
         <table class="col-10 table table-bordered">
       <tr>
         <th class="col-1 bg-light">会員ID</th>
@@ -14,7 +14,7 @@
                 <%= customer.id %>
           </td>
           <td>
-            <%= link_to customer.last_name + customer.first_name, admin_customer_path(customer),class: "text-dark" %>
+            <u><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer),class: "text-dark" %></u>
           </td>
           <td>
                 <%= customer.email %>
@@ -28,7 +28,7 @@
     </table>
     </div>
     <!--<div class="row">-->
-    <div class="col text-center">
+    <div class="col text-center" style="display: flex; justify-content: center; ">
       <%= paginate @customers %>
     <!--</div>-->
     </div>
