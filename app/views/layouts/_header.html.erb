@@ -9,7 +9,7 @@
           <% end %>
           </div>
       </div>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
             <li><%= link_to ' マイページ',customer_user_path(current_customer), class: "btn btn-outline-secondary m-3 " %></li>
