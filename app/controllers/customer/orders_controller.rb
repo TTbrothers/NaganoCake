@@ -8,14 +8,14 @@ class Customer::OrdersController < ApplicationController
  end
 
  def comfirm
-  @cart_items = current_cart
+  @cart_items = current_customer.cart_items
 	 @order = Order.new(
     customer: current_customer,
     payment_method: params[:order][:payment_method]
     )
 
   # total_priceに請求額を代入
-  @order.total_payment = billing(@order)
+  # @order.total_payment = billing(@order)
 
   # addressにresidenceの値がはいっていれば
   if params[:order][:addresses] == "residence"

@@ -8,18 +8,17 @@
     <table class="table table-borderless">
       <tr>
         <th class="text-center align-middle"><%= f.label :メールアドレス %></th>
-        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+        <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com" %></td>
         <td></td>
       </tr>
       <tr>
         <th class="text-center align-middle"><%= f.label :パスワード %></th>
-        <td colspan="2"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></td>
+        <td colspan="2"><%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "password" %></td>
         <td></td>
       </tr>
       <tr>
         <th></th>
         <td><%= f.submit "ログイン", class: "btn btn-primary btn-block" %></td>
-
       </tr>
     </table>
     <% end %>
