@@ -53,11 +53,15 @@
         <tr>
         <th class="col-2 bg-light">会員ステータス</th>
         <td>
-          <% if @customer.is_deleted == true %>
-          退会
-          <% else %>
-          有
-          <% end %>
+         <% if @customer.is_deleted == true %>
+            <span class="badge badge-secondary">
+            退会
+            </span>
+            <% else %>
+            <span class="badge badge-primary">
+            有効
+            </spam>
+            <% end %>
           <%#= @customer.is_deleted ? '退会' : '有効' %>
         </td>
       </tr>
