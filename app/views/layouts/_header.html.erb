@@ -1,9 +1,7 @@
-<header>
+<header style="border-bottom :3px solid black">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid" style="border-bottom :3px solid black" >
+    <div class="container-fluid" >
       <a class="navbar" href="/"><span>ロゴ</span></a>
-
-</button>
       <div class="row justify-content-center">
           <div class="col-sm-offset-3 col-sm-12">
           <% if customer_signed_in? %>
@@ -11,16 +9,14 @@
           <% end %>
           </div>
       </div>
-
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
-
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' マイページ',customer_user_path(current_customer) %> </button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 商品一覧',customer_items_path %></button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' カート', customer_cart_items_path %></button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></button></li>
-      <% elsif admin_signed_in? %>
+        <% elsif admin_signed_in? %>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 商品一覧',admin_items_path %> </button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 会員一覧',admin_customers_path %></button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 注文履歴一覧',admin_orders_path %></button></li>
@@ -31,13 +27,10 @@
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 商品一覧', customer_items_path %></button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' 新規登録', new_customer_registration_path %></button></li>
             <button class="btn btn-outline-secondary m-3 " ><li><%= link_to ' ログイン', new_customer_session_path %></button></li>
-
         <% end %>
         </ul>
       <!--検索機能-->
       </div>
       </nav>
     </div>
-
-
 </header>

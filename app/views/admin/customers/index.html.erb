@@ -20,7 +20,7 @@
                 <%= customer.email %>
           </td>
           <td class="text-center">
-                <%= customer.is_deleted %>
+                <%= customer.is_deleted ? '退会' : '有効' %>
           </td>
       </tr>
       <% end %>

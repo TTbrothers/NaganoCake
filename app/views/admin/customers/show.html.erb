@@ -53,11 +53,13 @@
         <tr>
         <th class="col-2 bg-light">会員ステータス</th>
         <td>
-          <%= @customer.is_deleted %>
+          <%= @customer.is_deleted ? '退会' : '有効' %>
         </td>
       </tr>
     </table>
-    <button class="btn btn-success m-3 " ><%= link_to '編集する', edit_admin_customer_path %></button>文字色白にしたい
+
+      <%= link_to '編集する', edit_admin_customer_path, class: "btn btn-success m-3" %>
+
 
 
 
