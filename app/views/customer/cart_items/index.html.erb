@@ -32,13 +32,14 @@
           <% end %>
         </tbody>
       </table>
+
       <%= link_to '買い物を続ける', customer_items_path, class:"btn btn-primary" %>
     </div>
 
-    <div class="col-lg-3">
-      <table class="table table-berder">
+    <div class="col-3 mt-3 pull-right">
+      <table class="table table-bordered">
         <tr>
-          <th>合計金額</th>
+          <th style="background-color: #b0c4de;">合計金額</th>
           <td><%= @sum %>円</td>
         </tr>
       </table>
