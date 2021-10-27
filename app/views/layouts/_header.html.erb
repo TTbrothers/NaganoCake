@@ -8,6 +8,8 @@
           <div class="col-sm-offset-3 col-sm-12">
           <% if customer_signed_in? %>
           ようこそ、 <%= current_customer.last_name %>さん！
+          <% elsif admin_signed_in? %>
+          管理者としてログイン中
           <% end %>
           </div>
       </div>

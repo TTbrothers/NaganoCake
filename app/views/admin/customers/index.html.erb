@@ -1,10 +1,11 @@
 
 <div class="container">
+  <h4 class="col-2 m-5">会員一覧</h4>
   <div class="row" style="display: flex; justify-content: center; ">
-        <table class="col-10 table table-bordered">
+      <table class="col-10 table table-bordered">
       <tr>
         <th class="col-1 bg-light">会員ID</th>
-        <th class="col-2 bg-light">氏名</th>
+        <th class="col-2 bg-light"><u>氏名</u></th>
         <th class="col-1 bg-light">メールアドレス</th>
         <th class="col-2 bg-light">ステータス</th>
       </tr>
@@ -21,13 +22,13 @@
           </td>
           <td class="text-center">
             <% if customer.is_deleted == true %>
-            <span class="badge badge-secondary">
+            <strong class="text-secondary">
             退会
-            </span>
+            </strong>
             <% else %>
-            <span class="badge badge-primary">
+            <strong class="text-success">
             有効
-            </spam>
+            </strong>
             <% end %>
           </td>
       </tr>
