@@ -14,13 +14,13 @@
                 <%= customer.id %>
           </td>
           <td>
-            <%= link_to customer.last_name + customer.first_name, admin_customer_path(customer), class: "customer_#{customer.id}" %>
+            <%= link_to customer.last_name + customer.first_name, admin_customer_path(customer),class: "text-dark" %>
           </td>
           <td>
                 <%= customer.email %>
           </td>
           <td class="text-center">
-                <%= customer.is_deleted %>
+                <%= customer.is_deleted ? '退会' : '有効' %>
           </td>
       </tr>
       <% end %>
