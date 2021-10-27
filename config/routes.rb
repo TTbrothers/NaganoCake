@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
   namespace :customer do
     get 'addresses/index'
     get 'addresses/edit'
@@ -16,7 +21,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
   registrations: "customer/registrations",
   sessions: 'customer/sessions'
 }
-# 5.6行目↑どこのコントローラーを参照しているか
+# 16,17行目↑どこのコントローラーを参照しているか
 
 
 
@@ -57,10 +62,20 @@ namespace :customer do
   post 'orders/comfirm', to: 'orders#comfirm'
   #customer cart_items routes
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+
   resources :cart_items, only: [:index, :update, :create, :destroy]
 
+
+  
+  get 'users/confirm' => 'users#confirm'
+
   resources :users, only: [:show, :edit, :update]
-  resources :addresses, only: [:index, :edit, :update, :create, :destroy]
-end
+
+  patch 'withdraw/:id' => 'users#withdraw'
+  put 'withdraw/:id' => 'users#withdraw'
 
 end
+
+
+end
+

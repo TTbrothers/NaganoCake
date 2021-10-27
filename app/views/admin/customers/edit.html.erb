@@ -1,13 +1,18 @@
 <div class='container'>
-    <h2>会員情報編集</h2>
-     <div class='row'>
-       <div class="col-10">
-    <%= form_with model: @user, url:customer_user_path(@user), local:true do |f| %>
-    <table class="table  table-borderless">
+  <h2>会員情報編集</h2>
+  <div class='row'>
+    <div class="col-10">
+    <%= form_with model: @customer, url:admin_customer_path(@customer), local:true do |f| %>
+    <table class="table table-borderless">
+      <tr>
+        <th>会員ID</th>
+        <td><%= @customer.id %></td>
+        <td></td>
+      </tr>
       <tr>
         <th><%= f.label :"氏名" %></th>
-        <td> <%= f.text_field :last_name, class: "form-control" %></td>
-        <td> <%= f.text_field :first_name, autofocus: true, class: "form-control" %></td>
+        <td><%= f.text_field :last_name, class: "form-control"%></td>
+        <td><%= f.text_field :first_name, autofocus: true, class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :"フリガナ" %></th>
@@ -27,7 +32,6 @@
       <tr>
         <th><%= f.label :"住所" %></th>
         <td colspan="2"><%= f.text_field :address, class: "form-control" %></td>
-        <td></td>
       </tr>
       <tr>
         <th><%= f.label :"電話番号" %></th>
@@ -35,13 +39,11 @@
         <td></td>
       </tr>
       <tr>
-        <th></th>
-        <td> <%= f.submit "編集内容を保存", class: "form-control" %></td>
-        <td><%= link_to '退会する', customer_users_confirm_path, class: "btn btn-danger btn-block"%></td>
-      </tr>
-      <tr>
-        <th></th>
-        <td></td>
+        <th><%= f.label :"会員ステータス" %></th>
+        <td><%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted, '有効', value: false %>
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, '退会', value: true%></td>
         <td></td>
       </tr>
       <tr>
@@ -51,13 +53,11 @@
       </tr>
       <tr>
         <th></th>
-        <td></td>
+        <td><%= f.submit "編集内容を保存" %></td>
         <td></td>
       </tr>
-
     </table>
     <% end %>
     </div>
-    </div>
-
   </div>
+</div>
