@@ -26,13 +26,13 @@
           <th>販売ステータス</th>
           <td>
           <% if @item.is_active == true %>
-          <span class="badge badge-primary">
+          <strong class="text-primary">
           販売中
-          </span>
+          </strong>
           <% else %>
-          <span class="badge badge-secondary">
+          <strong class="text-secondary">
           販売停止中
-          </spam>
+          </strong>
           </td>
           <% end %>
         </tr>
