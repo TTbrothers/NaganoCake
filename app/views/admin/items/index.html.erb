@@ -6,7 +6,6 @@
       <div class="text-lg-right">
         <%= link_to '追加', new_admin_item_path %>
       </div>
-      <% @items.each do |item| %>
         <table class="table">
           <thead>
             <tr>
@@ -17,6 +16,7 @@
               <th>ステータス</th>
             </tr>
           </thead>
+          <% @items.each do |item| %>
           <tbody>
             <tr>
               <td><%= item.id %></td>
@@ -27,11 +27,15 @@
               </td>
               <td><%= item.price %></td>
               <td><%= item.genre.name %></td>
-              <td><%= item.is_active %></td>
+              <% if item.is_active = true %>
+              <td><label>販売中</label></td>
+              <% else %>
+              <td><label>販売停止中</label></td>
+              <% end %>
             </tr>
           </tbody>
+          <% end %>
         </table>
-      <% end %>
     </div>
   </div>
 </div>
