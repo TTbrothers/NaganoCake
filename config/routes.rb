@@ -56,9 +56,9 @@ namespace :customer do
   get 'orders/complete', to: 'orders#complete'
   post 'orders/comfirm', to: 'orders#comfirm'
   #customer cart_items routes
-  resources :cart_items, only: [:index, :update, :create, :destroy]
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
-  put 'cart_items/destroy_all', to: 'cart_items#destroy_all'
+  resources :cart_items, only: [:index, :update, :create, :destroy]
+
   resources :users, only: [:show, :edit, :update]
   resources :addresses, only: [:index, :edit, :update, :create, :destroy]
 end
