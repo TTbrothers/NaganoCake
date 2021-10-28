@@ -66,7 +66,7 @@ namespace :customer do
   resources :cart_items, only: [:index, :update, :create, :destroy]
 
 
-  
+
   get 'users/confirm' => 'users#confirm'
 
   resources :users, only: [:show, :edit, :update]
