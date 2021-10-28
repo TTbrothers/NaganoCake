@@ -17,7 +17,7 @@
 	     配送先
 	    </div>
 	    <div class="col-xs-8">
-	     <%= full_address(@order) %>
+	     <%= @order.address%>
 	    </div>
 	   </div>
 
@@ -66,13 +66,13 @@
 		    <%= order_detail.item.name %>
 			 </td>
 		   <td class="text-right">
-			  ¥<%= tax_price(order_detail.item.price).to_s(:delimited) %>
+			  ¥<%= order_detail.tax.to_s(:delimited) %>
 			 </td>
 		   <td class="text-right">
 		    <%= order_detail.amount %>
 			 </td>
 			 <td class="text-right">
-			  ¥<%= price(order_detail).to_s(:delimited) %>
+			  ¥<%= order_detail.price.to_s(:delimited) %>
 			 </td>
 			  <%= form_for(order_detail, url: admin_order_detail_path(order_detail), method: :patch) do |f| %>
 	       <td>
@@ -89,7 +89,7 @@
 		<table class="table table-hover table-bordered table-condensed">
 		 <tr>
      	<th class="info">商品合計</th>
-			<td>¥<%= total_payment(@order_details).to_s(:delimited) %></td>
+			<td>¥<%= (@order.total_payment - @order.shipping_cost).to_s(:delimited) %></td>
 		 </tr>
 		 <tr>
 			<th class="info">送料</th>
