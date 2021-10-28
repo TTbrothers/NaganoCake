@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-lg">
-      <h4>商品編集</h4>
+      <label class="bg-light"><h4>商品編集</h4></label>
       <%= form_with model:@item, url:admin_item_path, local:true do |f| %>
-        <table class="table table-borderless">
+        <table class="table table-borderless" style="display: flex; justify-content: center;">
           <tr>
             <th>商品画像</th>
             <td><%= f.attachment_field :image %></td>
@@ -34,7 +34,7 @@
             </td>
           </tr>
         </table>
-        <%= f.submit '変更を保存', class:"btn btn-success" %>
+        <div style="display: flex; justify-content: center;"><%= f.submit '変更を保存', class:"btn btn-success" %></div>
       <% end %>
     </div>
   </div>

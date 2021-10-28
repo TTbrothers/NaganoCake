@@ -11,7 +11,7 @@
         <% end %>
       </div>
         <table class="table">
-          <thead>
+          <thead class="bg-light">
             <tr>
               <th>商品ID</th>
               <th>商品名</th>
@@ -33,20 +33,15 @@
               </td>
               <td><%= item.price %></td>
               <td><%= item.genre.name %></td>
-              <td>
-              <% if item.is_active == true %>
-              <strong class="text-success">
-              販売中
-              </strong>
+              <% if item.is_active = true %>
+              <td><label class="text-success"><strong>販売中</strong></label></td>
               <% else %>
-               <strong class="text-secondary">
-              販売停止中
-               </strong>
-              </td>
+              <td><label class="text-secondary"><strong>販売停止中</strong></label></td>
               <% end %>
             </tr>
           </tbody>
           <% end %>
+          <%= paginate @items %>
         </table>
     </div>
   </div>

@@ -1,6 +1,6 @@
     <%= render 'customer/items/genre_sidebar', genres: @genres %>
     <div class="col-lg-8 offset-lg-1">
-      <h4>商品一覧</h4>
+      <label class="bg-light"><h4>商品一覧</h4></label>
       <table class="table table-borderless">
         <tbody>
           <tr class="item-box">
@@ -13,6 +13,7 @@
                 <% end %>
               </td>
             <% end %>
+            <%= paginate @items %>
           </tr>
         </tbody>
       </table>

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3">
-      <h4>商品詳細</h4>
+      <label class="bg-light"><h4>商品詳細</h4></label>
       <div><%= attachment_image_tag(@item, :image, :fill, 200, 250, fallback:"no_image.jpg") %></div>
     </div>
     <div class="col-lg-8 offset-lg-1">
-      <table class="table table-borderless">
+      <table class="table table-borderless" style="display: flex; justify-content: center;">
         <tr>
           <th>商品名</th>
           <td><%= @item.name %></td>
@@ -24,20 +24,14 @@
         </tr>
         <tr>
           <th>販売ステータス</th>
-          <td>
-          <% if @item.is_active == true %>
-          <strong class="text-success">
-          販売中
-          </strong>
+          <% if @item.is_active = true %>
+          <td><label class="text-success"><strong>販売中</strong></label></td>
           <% else %>
-          <strong class="text-secondary">
-          販売停止中
-          </strong>
-          </td>
+          <td><label class="text-secondary"><strong>販売停止中</strong></label></td>
           <% end %>
         </tr>
       </table>
-      <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success" %>
+      <div style="display: flex; justify-content: center;"><%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success" %></div>
     </div>
   </div>
 </div>
