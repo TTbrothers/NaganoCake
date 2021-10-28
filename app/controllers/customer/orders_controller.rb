@@ -10,7 +10,7 @@ class Customer::OrdersController < ApplicationController
  def comfirm
   @cart_items = current_customer.cart_items
 	 @order = Order.new(
-    customer: current_customer,
+    customer_id: current_customer.id,
     payment_method: params[:order][:payment_method]
     )
 
@@ -47,10 +47,10 @@ class Customer::OrdersController < ApplicationController
  end
 
  def create
-  @order = current_customer.order.new(order_params)
+  @order = current_customer.orders.new(order_params)
   @order.save
   flash[:notice] = "ご注文が確定しました。"
-  redirect_to orders_complete_path
+  redirect_to customer_orders_complete_path
 
   # もし情報入力でnew_addressの場合ShippingAddressに保存
   if params[:order][:ship] == "1"
@@ -58,13 +58,13 @@ class Customer::OrdersController < ApplicationController
   end
 
   # カート商品の情報を注文商品に移動
-  @cart_items = current_cart
+  @cart_items = current_customer.cart_items
   @cart_items.each do |cart_item|
   OrderDetail.create(
-  item: cart_item.item,
-      order: @order,
-      quantity: cart_item.quantity,
-      price: price(cart_item)
+  item_id: cart_item.item_id,
+      order_id: @order.id,
+      amount: cart_item.quantity,
+      price: cart_item.item.price
        )
   end
   # 注文完了後、カート商品を空にする
