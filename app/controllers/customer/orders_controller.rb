@@ -27,7 +27,7 @@ class Customer::OrdersController < ApplicationController
   # addressにshipping_addressesの値がはいっていれば
   elsif params[:order][:addresses] == "shipping_addresses"
    ship = Address.find(params[:order][:shipping_address_id])
-    @order.postal_code = ship.postal_code
+    @order.postal_code = ship.postcode
     @order.address     = ship.address
     @order.name        = ship.name
 
@@ -60,12 +60,12 @@ class Customer::OrdersController < ApplicationController
   # カート商品の情報を注文商品に移動
   @cart_items = current_customer.cart_items
   @cart_items.each do |cart_item|
-  OrderDetail.create(
-  item_id: cart_item.item_id,
-      order_id: @order.id,
-      amount: cart_item.quantity,
-      price: cart_item.item.price
-       )
+      order_detail = OrderDetail.new
+      order_detail.item_id = cart_item.item_id
+      order_detail.order_id = @order.id
+      order_detail.amount = cart_item.quantity
+      order_detail.price = cart_item.item.price
+      order_detail.save
   end
   # 注文完了後、カート商品を空にする
   @cart_items.destroy_all
@@ -86,7 +86,7 @@ class Customer::OrdersController < ApplicationController
  private
 
  def order_params
-  params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment)
+  params.require(:order).permit(:postal_code, :address, :name, :payment_method, :total_payment, :shipping_cost)
  end
 
  def address_params

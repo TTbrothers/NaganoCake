@@ -49,7 +49,7 @@
    </tr>
    <tr>
     <th class="info">請求金額</th>
-    <td class="text-right">¥<%= @total + @order.shipping_cost %></td>
+    <td class="text-right">¥<%= @order.total_payment = @total + @order.shipping_cost %></td>
    </tr>
   </table>
  </div>
@@ -77,7 +77,7 @@
     <%= f.hidden_field :name %>
     <%= f.hidden_field :payment_method %>
     <%= f.hidden_field :total_payment %>
-    <%= f.hidden_field :ship, value: @ship %>
+    <%= f.hidden_field :shipping_cost, value: @order.shipping_cost %>
     <%= link_to "注文情報入力へ戻る", new_customer_order_path, data: {"turbolinks" => false}, class: "btn btn-info col-xs-3 back" %>
    　<i class="fas fa-shipping-fast fa-2x"></i>
     <%= f.submit "購入を確定する", class: "btn btn-success center-block col-xs-5" %>

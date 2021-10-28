@@ -12,6 +12,8 @@ class Admin::OrderDetailsController < ApplicationController
 	end
 
  end
+ 
+ def
 
  private
 

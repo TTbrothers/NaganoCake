@@ -21,7 +21,7 @@
 		    <% end %>
 		        </td>
 		        <td class="text-left">
-		          <%= full_name(order.customer) %>
+		          <%= order.customer.last_name + order.customer.first_name %>
 		        </td>
 		        <td class="text-right">
 		          <%= order.order_details.count %>
