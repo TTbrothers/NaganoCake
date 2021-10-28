@@ -10,10 +10,9 @@ end
 def show
  @order = Order.find(params[:id])
  @order_details = @order.order_details
-
 end
 
-def show
+def update
  @order = Order.find(params[:id])
  if @order.update(order_params)
   flash[:success] = "注文ステータスを変更しました"
