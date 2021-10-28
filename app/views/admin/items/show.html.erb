@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <th>販売ステータス</th>
-          <% if @item.is_active = true %>
+          <% if @item.is_active == true %>
           <td><label class="text-success"><strong>販売中</strong></label></td>
           <% else %>
           <td><label class="text-secondary"><strong>販売停止中</strong></label></td>
