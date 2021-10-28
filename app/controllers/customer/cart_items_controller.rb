@@ -3,8 +3,15 @@ class Customer::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    @cart_item.save
-    redirect_to customer_cart_items_path
+    if @cart_item.save
+      redirect_to customer_cart_items_path
+    else
+      @cart_item = CartItem.new(cart_item_params)
+      @cart_item.customer_id = current_customer.id
+      @item = Item.find(params[:cart_item][:item_id])
+      @genres = Genre.all
+      render 'customer/items/show'
+    end
   end
 
   def index
