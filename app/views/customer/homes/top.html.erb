@@ -1,19 +1,22 @@
-
-  <div class="row">
-      <%= render 'customer/items/genre_sidebar', genres: @genres %>
+<div class="row">
+    <%= render 'customer/items/genre_sidebar', genres: @genres %>
     <div class="col">
      <div style="position: relative; display:inline-block;">
        <img src="/assets/top.jpg" alt="">
-       <strong class="bg-warning p-2 text-dark" style="position: absolute; top: 0; left: 0; max-width: 100%; max-height: 100%; padding: 30px; text-align: center; opacity: 0.70; ">
-        <p class="main-visual-text">
-        <p>ようこそ、ながのCAKEへ！</p>
-        <p>このサイトは、ケーキ販売のECサイトになります。</p>
-        <p>会員でない方も商品の閲覧はできますが、</p>
-        <p>購入には会員登録が必要になります。</p>
-        </p>
-        </strong>
+        <div style="position: absolute; top: 80px; left: 100px; max-width: 100%; max-height: 100%; padding: 30px; text-align: center;">
+        <div style="background-color: orange; opacity: 0.70; width: 380px; height: 180px;"></div>
+        </div>
+          <div style="position: absolute; top: 90px; left: 100px; max-width: 100%; max-height: 100%; padding: 30px; text-align: center;">
+            <div class="main-visual-text" style="opacity: 1;">
+            <p style="opacity: 1;">ようこそ、ながのCAKEへ！</p>
+            <p style="opacity: 1;">このサイトは、ケーキ販売のECサイトになります。</p>
+            <p style="opacity: 1;">会員でない方も商品の閲覧はできますが、</p>
+            <p style="opacity: 1;">購入には会員登録が必要になります。</p>
+            </div>
+          </div>
         </div>
         </div>
+         <!--class="bg-warning p-2"-->
         </div>
         <div class="row">
           <div class="col-md-3 offset-md-3 p-5">
@@ -34,7 +37,7 @@
             <% end %>
           </tr>
         </tbody>
-             </div>
+          </div>
             <div class="row m-5">
         <div class="col-md-3 offset-md-6">
             <%= link_to '全ての商品を見る>', customer_items_path %>
