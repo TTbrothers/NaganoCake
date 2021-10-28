@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg">
+    <div class="col">
       <h4>商品新規登録</h4>
       <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
-        <table class="table table-borderless">
+        <table class="table table-borderless" style="display: flex; justify-content: center;">
           <tr>
             <th>商品画像</th>
             <td><%= f.attachment_field :image %></td>
@@ -34,7 +34,9 @@
             </td>
           </tr>
         </table>
+        <div style="display: flex; justify-content: center;">
         <%= f.submit '新規登録', class:"btn btn-success" %>
+        </div>
       <% end %>
     </div>
   </div>
