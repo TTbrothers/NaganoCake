@@ -9,51 +9,60 @@
 
     <table class="col-10 table table-bordered">
       <tr>
-        <th class="col-2 bg-light">会員ID</th>
+        <th class="col-2"style="background-color: #b0c4de;">会員ID</th>
         <td>
           <%= @customer.id %>
         </td>
       </tr>
       <tr>
-        <th class="col-2 bg-light">氏名</th>
+        <th class="col-2"style="background-color: #b0c4de;">氏名</th>
           <td>
             <%= @customer.last_name + @customer.first_name %>
           </td>
       </tr>
       <tr>
-        <th class="col-2 bg-light">カナ</th>
+        <th class="col-2"style="background-color: #b0c4de;">カナ</th>
         <td>
           <%= @customer.last_name_kana + @customer.first_name_kana %>
         </td>
       </tr>
       <tr>
-        <th class="col-2 bg-light">郵便番号</th>
+        <th class="col-2"style="background-color: #b0c4de;">郵便番号</th>
         <td>
           <%= @customer.postal_code %>
         </td>
       </tr>
       <tr>
-        <th class="col-2 bg-light">住所</th>
+        <th class="col-2"style="background-color: #b0c4de;">住所</th>
         <td>
           <%= @customer.address %>
         </td>
       </tr>
       <tr>
-        <th class="col-2 bg-light">電話番号</th>
+        <th class="col-2"style="background-color: #b0c4de;">電話番号</th>
         <td>
           <%= @customer.telephone_number %>
         </td>
       </tr>
       <tr>
-        <th class="col-2 bg-light">メールアドレス</th>
+        <th class="col-2"style="background-color: #b0c4de;">メールアドレス</th>
         <td>
           <%= @customer.email %>
         </td>
         </tr>
         <tr>
-        <th class="col-2 bg-light">会員ステータス</th>
+        <th class="col-2"style="background-color: #b0c4de;">会員ステータス</th>
         <td>
-          <%= @customer.is_deleted ? '退会' : '有効' %>
+         <% if @customer.is_deleted == true %>
+            <strong class="text-secondary">
+            退会
+            </strong>
+            <% else %>
+            <strong class="text-success">
+            有効
+            </strong>
+            <% end %>
+          <%#= @customer.is_deleted ? '退会' : '有効' %>
         </td>
       </tr>
     </table>

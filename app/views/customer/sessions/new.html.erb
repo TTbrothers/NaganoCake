@@ -15,7 +15,7 @@
               <%= f.label :メールアドレス %>
           </div>
           <div class="col-4">
-              <%= f.email_field :email, :size=>"60", autofocus: true, autocomplete: "email" %>
+              <%= f.email_field :email, :size=>"60", autofocus: true, autocomplete: "email", placeholder: "name@example.com" %>
           </div>
       </div>
       <div class="row">
@@ -23,7 +23,7 @@
               <%= f.label :パスワード %>
               </div>
               <div class="col-4">
-              <%= f.password_field :password, :size=>"60", autocomplete: "current-password" %>
+              <%= f.password_field :password, :size=>"60", autocomplete: "current-password", placeholder: "password" %>
           </div>
       </div>
 
