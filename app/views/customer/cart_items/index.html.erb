@@ -36,14 +36,10 @@
     <div class="col-lg-3"><%= link_to '買い物を続ける', customer_items_path, class:"btn btn-primary" %></div>
     <div class="col-lg-3 offset-lg-4">
       <table class="table table-berder">
+
         <tr>
-          <th>合計金額</th>
+          <th style="background-color: #b0c4de;">合計金額</th>
           <td><%= @sum %>円</td>
         </tr>
       </table>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-3 offset-lg-4"><%= link_to '情報を入力する', new_customer_order_path, class:"btn btn-success" %></div>
-  </div>
-</div>
+      <%= link_to '情報を入力する', new_customer_order_path, class:"btn btn-success",data: {"turbolinks"=>false} %>

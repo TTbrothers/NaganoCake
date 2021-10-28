@@ -57,9 +57,10 @@ namespace :customer do
   resources :genres, only: [:index, :edit, :update]
   resources :addresses, only: [:index, :create, :update, :destroy, :edit]
   #customer order routes
-  resources :orders, only: [:new, :create, :index, :show]
+
   get 'orders/complete', to: 'orders#complete'
   post 'orders/comfirm', to: 'orders#comfirm'
+  resources :orders, only: [:new, :create, :index, :show]
   #customer cart_items routes
   delete 'cart_items/destroy_all', to: 'cart_items#destroy_all'
 

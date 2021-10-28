@@ -1,12 +1,13 @@
 
 <div class="container">
-  <div class="row">
-        <table class="col-10 table table-bordered">
+  <h4 class="col-2 m-5">会員一覧</h4>
+  <div class="row" style="display: flex; justify-content: center; ">
+      <table class="col-10 table table-bordered">
       <tr>
-        <th class="col-1 bg-light">会員ID</th>
-        <th class="col-2 bg-light">氏名</th>
-        <th class="col-1 bg-light">メールアドレス</th>
-        <th class="col-2 bg-light">ステータス</th>
+        <th class="col-1"style="background-color: #b0c4de;">会員ID</th>
+        <th class="col-2"style="background-color: #b0c4de;"><u>氏名</u></th>
+        <th class="col-1"style="background-color: #b0c4de;">メールアドレス</th>
+        <th class="col-2"style="background-color: #b0c4de;">ステータス</th>
       </tr>
       <% @customer.each do |customer| %>
       <tr>
@@ -14,13 +15,21 @@
                 <%= customer.id %>
           </td>
           <td>
-            <%= link_to customer.last_name + customer.first_name, admin_customer_path(customer),class: "text-dark" %>
+            <u><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer),class: "text-dark" %></u>
           </td>
           <td>
                 <%= customer.email %>
           </td>
           <td class="text-center">
-                <%= customer.is_deleted ? '退会' : '有効' %>
+            <% if customer.is_deleted == true %>
+            <strong class="text-secondary">
+            退会
+            </strong>
+            <% else %>
+            <strong class="text-success">
+            有効
+            </strong>
+            <% end %>
           </td>
       </tr>
       <% end %>
@@ -28,7 +37,7 @@
     </table>
     </div>
     <!--<div class="row">-->
-    <div class="col text-center">
+    <div class="col text-center" style="display: flex; justify-content: center; ">
       <%= paginate @customers %>
     <!--</div>-->
     </div>
